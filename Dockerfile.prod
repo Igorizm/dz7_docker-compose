@@ -1,0 +1,3 @@
+FROM tomcat:10-jre17-alpine
+
+CMD ["catalina.sh", "run"]
