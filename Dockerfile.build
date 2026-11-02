@@ -5,4 +5,4 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 
-CMD mvn clean package; echo "=== СБОРКА ОКОНЧЕНА ==="; sleep infinity
+CMD mvn package; echo "=== СБОРКА ОКОНЧЕНА ==="; sleep infinity
