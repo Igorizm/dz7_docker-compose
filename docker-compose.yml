@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  build-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.build
+    volumes:
+      - shared-artifacts:/app/target
+
+  prod-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - "8080:8080"
+    volumes:
+      - shared-artifacts:/usr/local/tomcat/webapps
+    depends_on:
+      - build-service
+
+volumes:
+  shared-artifacts:
